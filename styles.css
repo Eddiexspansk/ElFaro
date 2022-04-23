@@ -16,7 +16,7 @@ body {
 
   .card-body { height: 150px; overflow-y: scroll; width: 100%; }
 
-  //.card-body p { width: 650px; word-break: break-word; }
+  .card-body p { width: 650px; word-break: break-word; }
 
 /*Las etiquetas article (son donde van las noticias) tendrán el elemento grid
 para organizarlos en bloques*/
