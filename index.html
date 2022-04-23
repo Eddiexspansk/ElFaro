@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="Es">
+
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--se agrega Boostrap al html-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--Se crea el enlace a la hoja de estilos que será la que conendrá el código CSS-->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href=
+    "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+
+    <!--TAB-->
+
+    <!--Se agrega el ícono en el Tab de la página-->
+    <link rel="icon" href="imagenes/vecteezy_lighthouse-logo-vector-design_.jpg">
+    <!--Título en el Tab-->
+    <title>El Faro (AIEP S5)</title>
+
+
+
+
+</head>
+
+<body>
+
+    
+
+
+    <!--HEADER-->
+
+    <!--Se alinea el header para que el faro y el título se vean en el centro de la pantalla-->
+    <header align="center">
+        <div class="header-container">
+
+            <div id="reloj"></div>
+
+            <div class="col">
+                <div class="row">
+                    <FONT FACE="rockwell">
+                        <h1>EL FARO</h1>
+                    </FONT>
+                </div>
+
+
+
+                <!--Barra de Navegación-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-body">
+                    <div class="container-fluid">
+                        <a class="navbar-brand " href="#"><img src="./imagenes/vecteezy_lighthouse-logo-vector-design_.jpg"
+                                class="img-thumbnail rounded-circle" width="50px" height="50px"></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="categorias">
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+
+    </header>
+    <!--ÁREA DE PUBLICIDAD-->
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./imagenes/banner1.JPG" class="d-sm-block" alt="...">
+          </div>
+          <div class="carousel-item ">
+            <img src="./imagenes/banner2.JPG"  class="d-sm-block" alt="...">
+          </div>
+          <div class="carousel-item ">
+            <img src="./imagenes/banner 3.JPG" class="d-sm-block" alt="...">
+          </div>
+        </div>
+      </div>
+
+      <div></div>
+    <!--Se crea la clase menú para dar forma a un menú mas estilizado con CSS-->
+    <div class="container-fluid">
+        <section align="center">
+            <!--AQUÍ ENTRA EL RELOJ-->
+            <p id="constante"></p>
+
+
+            
+
+            <!--ACÁ SE AGREGAN LAS NOTICIAS DESDE LA FUNCIÓN redibujaNoticia()-->
+            <div class="row flex-row " id="noticias">
+            </div>
+
+
+            <div class="form">
+                <form name="formulario">
+                    <div class="form-group">
+                        <label for="titleField">Título: </label>
+                        <input type="text" id="titleField" class="titleField">`
+                    </div>
+                    <div class="form-group">
+                        <label for="catField">Categoría: </label>
+                        <input type="text" id="catField" class="catField"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="descField">Descripción: </label>
+                        <textarea id="descField" class="descField"></textarea><br>
+                        <input type="button" onclick="entradaArticulo()" value="Ingrese su artículo"
+                            class="articleSubmit">
+                    </div>
+                </form>
+            </div>
+    </div>
+    </section>
+
+
+
+
+
+            <!-- Footer -->
+            <footer
+                    class="text-center text-lg-start text-dark"
+                    style="background-color: #ECEFF1"
+                    >
+              <!-- Section: Social media -->
+              <section
+                       class="d-flex justify-content-between p-4 text-white"
+                       style="background-color: #21D192"
+                       >
+                <!-- Left -->
+                <div class="me-5">
+                  <span>Nos puedes enciontrar en las redes sociales :</span>
+                </div>
+                <!-- Left -->
+          
+                <!-- Right -->
+                <div>
+                  <a href="" class="text-white me-4">
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                  <a href="" class="text-white me-4">
+                    <i class="bi bi-twitter"></i>
+                  </a>
+                  <a href="" class="text-white me-4">
+                    <i class="bi bi-google"></i>
+                  </a>
+                  <a href="" class="text-white me-4">
+                    <i class="bi bi-instagram"></i>
+                  </a>
+                  <a href="" class="text-white me-4">
+                    <i class="bi bi-linkedin"></i>
+                  </a>
+                  <a href="" class="text-white me-4">
+                    <i class="bi bi-github"></i>
+                  </a>
+                </div>
+                <!-- Right -->
+              </section>
+              <!-- Section: Social media -->
+          
+              <!-- Section: Links  -->
+              <section class="">
+                <div class="container text-center text-md-start mt-5">
+                  <!-- Grid row -->
+                  <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                      <!-- Content -->
+                      <h6 class="text-uppercase fw-bold">Noticias El Faro</h6>
+                      <hr
+                          class="mb-4 mt-0 d-inline-block mx-auto"
+                          style="width: 60px; background-color: #7c4dff; height: 2px"
+                          />
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci necessitatibus impedit quam sapiente deleniti enim obcaecati hic, libero provident corrupti dolor nesciunt soluta culpa! Facere eum doloremque necessitatibus soluta assumenda.
+                      </p>
+                    </div>
+                    <!-- Grid column -->
+          
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                      <!-- Links -->
+                      <h6 class="text-uppercase fw-bold">Products</h6>
+                      <hr
+                          class="mb-4 mt-0 d-inline-block mx-auto"
+                          style="width: 60px; background-color: #7c4dff; height: 2px"
+                          />
+                      <p>
+                        <a href="#!" class="text-dark">Suscribirse</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-dark">Noticias</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-dark">Mechandasing</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-dark">Bootstrap</a>
+                      </p>
+                    </div>
+                    <!-- Grid column -->
+          
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                      <!-- Links -->
+                      <h6 class="text-uppercase fw-bold">Useful links</h6>
+                      <hr
+                          class="mb-4 mt-0 d-inline-block mx-auto"
+                          style="width: 60px; background-color: #7c4dff; height: 2px"
+                          />
+                      <p>
+                        <a href="#!" class="text-dark">Registrarse</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-dark">Ingresar</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-dark">Empleo</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-dark">Ayuda</a>
+                      </p>
+                    </div>
+                    <!-- Grid column -->
+          
+                    <!-- Grid column -->
+                    <div id="formContacto" class=" col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <form name="formContacto">
+                            <h6 class="text-uppercase fw-bold">Contacto</h6>
+                            <div class="form-group">
+                                <input type="text" id="nombreContacto" placeholder="Nombre"><br>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="emailContacto" placeholder="Email"><br>
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="4" cols="20" id="textareaContacto" class="textareaContacto" form="formContacto"
+                                    placeholder="Descripción..."></textarea><br>
+                                <input type="button" onclick="" value="Enviar" class="contactoForm"><br>
+                            </div>
+                        </form>
+                    </div>
+                    <div>
+                    <!-- Grid column -->
+                  </div>
+                  <!-- Grid row -->
+                </div>
+              </section>
+              <!-- Section: Links  -->
+          
+              <!-- Copyright -->
+              <div
+                   class="text-center p-3"
+                   style="background-color: rgba(0, 0, 0, 0.2)"
+                   >
+                   Author: Eduardo Pinto
+                   <a href="mailto:epm@example.com">epm@example.com</a>
+
+              </div>
+              <!-- Copyright -->
+            </footer>
+            <!-- Footer -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        //PLANTILLA PARA RELLENAR DENTRO DE CADA %% %%
+        //SE CREA LA FUNCION PARA QUE CON EL BOTON SE ACTIVE Y PROCEDA A MOSTRAR EL CONTENIDO
+        var template = '<div class="col col-sm-4"><article class="card border-secondary  h-100 " style="width: 20em";">' +
+            '<table>' +
+            '<tr><td><h3 class="card-header">%%TITLE%%</h3><h6 >cat: %%CAT%%</h6></td></tr>' +
+            '<tr><td><p class="card-body text-secondary">%%TEXTO%%</p></td></tr>' +
+            '%%MEDIA%%' +
+            '</table></article></div>';
+        var catTemplate = "<li class=\"nav-item\"><a class=\"nav-link active\" aria-current=\"page\" onClick=\"filter('%%CATK%%');\">%%CATL%%</a></li>";
+        var filtro = "";
+
+        //DATOS PARA RELLENAR LAS NOTICIAS BASES PARA QUE SE VEAN NOTICIAS FIJAS (EN ESTE PROYECTO)
+        var data = [
+            {
+                "title": "Entre carbón y metales pesados: la ciudad vertedero del sur de Chile",
+                "categoria": "Medio Ambiente",
+                "text": "CORONEL, Chile Es cerca del mediodía, el cielo está despejado, pero en Coronel, una de las cinco zonas de sacrificio que tiene Chile, se puede mirar directamente al sol.<br/>Frente a la costa sur del océano Pacífico, el humo que desprende la central termoeléctrica de Bocamina II eclipsa los rayos solares. A unos 500 metros de distancia, en medio del cerro Millabu, existe un recinto de más de 11 hectáreas de superficie.",
+                "media": "<td><a href=\"imagenes/industria-1536x1152.jpg\" target=\"_blank\"><img class=\"card-img-bottom h-75 w-75\" src=\"imagenes/industria-1536x1152.jpg\"></a></td>"
+            },
+            {
+                "title": "The New York Times sospecha que el sistema de espionaje del Gobierno ruso emplea equipamiento de Nokia",
+                "categoria": "Internacional",
+                "text": "The New York Times sospecha que el sistema de espionaje del Gobierno ruso emplea equipamiento de Nokia, aunque la compañía anunció en marzo que cortaba el suministro. La finlandesa podría ser la proveedora del equipo y el software que conecta la herramienta “más poderosa” del Gobierno ruso para la vigilancia digital, denominada SORM, con la mayor red de telecomunicaciones del país.",
+                "media": "<td><audio controls><source src=\"Audio/New York, New York (2008 Remastered) (128 kbps).mp3\" type=\"audio/mp3\"> Your browser does not support the audio element. </audio> </td>"
+            },
+            {
+                "title": "¿Podría darse un Pacto de Santiago?, en Chile hablan de esta posibilidad que afectaría a Colombia",
+                "categoria": "Deportes",
+                "text": "De acuerdo con el medio chileno, este acuerdo no estaría tan lejos de la realidad teniendo en cuenta que parte del cuerpo técnico de Chile está conformado por uruguayos, lo que les daría una ventaja. “Si alguna vez existió el Pacto de Lima, entre peruanos y colombianos, ¿por qué no puede nacer ahora el Pacto de Santiago? Existen algunos motivos para ilusionarse con aquello”, planteó el medio chileno.",
+                "media": "<td><video class=\"responsive\" src=\"Videos/Seoul - 21985.mp4\" controls></video></td>"
+            },
+            {
+                "title": "Blockchain Academy Chile lanza oficialmente una incubadora de negocios en colaboración con Celo",
+                "categoria": "Negocios",
+                "text": "La Blockchain Academy de Chile, en colaboración con la Fundación Celo, anuncian una convocatoria de Incubación de Negocios Blockchain. Dicho programa tiene una duración total de 18 meses basado en tres etapas que terminará con un Demo Day. Se busca mediante este programa el potenciar startups que cuentan con un mercado medible y alcanzable. Deben tener un modelo de negocio que les permita tener buena viabilidad económica en el medio plazo. Además, deben tener un desarrollo de producto mínimo viable, rápido y que ofrezca escalabilidad. Finalizado el periodo de incubación de este programa, existe la posibilidad de realizar una presentación. La presentación en Chile contará con inversores, fondos de capital de riesgo y programas de aceleración.",
+                "media": "<td><img src=\"imagenes/bitcoin.JPG\" class=\"responsive\"></td>"
+            }
+        ];
+
+
+
+
+        // SE CREA LA FUNCIÓN PARA ESCRIBIR LAS NOTICIAS NUEVAS EBN EL HTML
+        function redibujaNoticias() {
+            //CUENTA LA CANTIDAD DE ARTÍCULOS
+            let articleCount = data.length;
+            //ENTRA EN HTML EN LA ID=CONSTANTE Y MUESTRA LA CANTIDAD DE ARTÍCULOS
+            document.getElementById("constante").innerHTML = "Cantidad de artículos: " + articleCount;
+
+            var out = "";
+            //document.getElementById("noticias").innerHTML = out;
+
+            var cats = [""];
+
+            //SE RECORRE EL ARRAY DATA Y SE FILTRA POR CATEGORÍAS
+            data.forEach(d => {
+                //??
+                if (filtro == "" || filtro == d.categoria) {
+                    out += template.replaceAll("%%TITLE%%", d.title)
+                        .replaceAll("%%CAT%%", d.categoria)
+                        .replaceAll("%%TEXTO%%", d.text)
+                        .replaceAll("%%MEDIA%%", d.media);
+                }
+                //??
+                if (!cats.includes(d.categoria)) cats.push(d.categoria);
+            });
+
+            console.log("GEBI", document.getElementById("noticias"));
+
+            document.getElementById("noticias").innerHTML = out;
+            out = "";
+
+            cats.forEach(c => {
+                var c = catTemplate
+                    .replaceAll("%%CATK%%", c)
+                    .replaceAll("%%CATL%%", (c == "" ? "Inicio" : c));
+                out += c;
+            });
+            document.getElementById("categorias").innerHTML = out;
+        }
+        //??
+        function filter(f) {
+            filtro = f;
+            redibujaNoticias();
+        }
+
+
+
+
+        //SE CREA LA FUNCION PARA MOSTRAR EL RELOJ
+        function muestraReloj() {
+            const date = new Date();
+            const [day, year] = [date.getDate(), date.getFullYear()];
+            //SE GUARDAN LOS NOMBRES DE LOS MESES PARA REEMPLZARLOS POR LOS NÚMEROS
+            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+            ];
+
+            getLongMonthName = function (date) {
+                return monthNames[date.getMonth()];
+            }
+            //SE OBTIENEN LOS DATOS Y SE REALIZAN CONDICIONES PARA AGREGAR 0 A LOS NUMEROS ANTES DE 10
+            //EJ :DE 1 A 01
+            var [hour, minutes, seconds] = [date.getHours(), date.getMinutes(), date.getSeconds()];
+            if (hour < 10) { hour = "0" + hour; }
+            if (minutes < 10) { minutes = "0" + minutes; }
+            if (seconds < 10) { seconds = "0" + seconds; }
+            document.getElementById("reloj").innerHTML = day + " de " + getLongMonthName(date) + " del " + year + " " + hour + ":" + minutes + ":" + seconds;
+        }
+        //ESTO HACE QUE EL RELOJ SE ACTUALICE CADA 1 SEGUNDO Y SE VEA EN VIVO
+        window.onload = function () {
+            setInterval(muestraReloj, 1000);
+        }
+
+        //OBTIENE DATOS DEL FORMULARIO DE "INGRESE SU ARTÍCULO" Y LOS GUARDA EN LA VARIABLE art
+        //Y SE LLAMA A LA FUNCION redibujaNoticia() PARA ENTRARLO EN EL HTML
+        function entradaArticulo() {
+            var art = {
+                "title": document.querySelector('#titleField').value,
+                "categoria": document.querySelector('#catField').value,
+                "text": document.querySelector('#descField').value,
+                "media": ""
+            };
+            console.log("art");
+            data.push(art);
+            redibujaNoticias();
+        }
+
+        redibujaNoticias();
+    </script>
+
+</body>
+
+</html>

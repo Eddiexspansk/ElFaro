@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="Es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>El Faro</title>
+</head>
+
+<body>
+    <header align="center">
+        <h1>EL FARO</h1>
+        <img src="imagenes/vecteezy_lighthouse-logo-vector-design_.jpg" widht="100px" height="100px">
+        
+        <script>
+            function muestraReloj() {
+            const date = new Date();
+            const [ day, year] = [ date.getDate(), date.getFullYear()];
+            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+            ];
+    
+            getLongMonthName = function(date) {
+            return monthNames[date.getMonth()];
+            }
+    
+            var [hour, minutes, seconds] = [date.getHours(), date.getMinutes(), date.getSeconds()];
+            if(hour < 10 ) {hour = "0" + hour;}
+            if(minutes < 10 ) {minutes = "0" + minutes;}
+            if(seconds  < 10 ) {seconds = "0" + seconds;}       
+            document.getElementById("reloj").innerHTML = day + " de " + getLongMonthName(date) + " del "+ year + " " + hour + ":" + minutes + ":" + seconds;
+            }
+            window.onload = function() {
+            setInterval(muestraReloj, 1000);
+            }
+        </script>
+         <div id="reloj"></div>
+    
+    </header>
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="deportes.html">Deportes</a></li>
+            <li><a href="negocios.html">Negocios</a></li>
+        </ul>
+    </nav>
+
+    <section align="center">
+        <p>DEPORTES</p>
+        <p>----------------------------------------------------------------------------------------------------------------------
+        </p>
+        <p id="constante"></p>
+        <article>
+            <table>
+                <tr>
+                    <td>
+                        <h3>Uruguay sepulta la ilusión de Chile hacia Qatar 2022</h3>
+                        <h6>cat: Deportes</h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>La selección chilena quedó fuera del Mundial de Qatar 2022 al perder 2-0 ante su similar de
+                            Uruguay este martes por la noche en Santiago, en partido de la última fecha de las
+                            clasificatorias sudamericanas. Chile debía ganar y esperar que Perú y Colombia perdieran,
+                            pero
+                            nada de eso ocurrió. Los goles de Luis Suárez (minuto 79) y Federico Valverde (90) le
+                            impidieron
+                            a la selección chilena alcanzar el quinto puesto de las clasificatorias sudamericanas y
+                            jugar
+                            así el repechaje ante un equipo asiático.</p>
+                    </td>
+                </tr>
+                <td>
+                   
+                    <div class="video-responsive">
+                        
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/Jo9YJfbgrng" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </td>
+            </table>
+        </article>
+        <p>----------------------------------------------------------------------------------------------------------------------
+        </p>
+        <article>
+            <table>
+                <tr>
+                    <th>
+                        <h3>Los mejores memes de la eliminación de Chile, que se quedó afuera del Mundial de Qatar 2022
+                        </h3>
+                        <h6>cat: Deportes</h6>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>Chile se quedó fuera del Mundial de Qatar 2022 en la última fecha de las Eliminatorias y los
+                            usuarios inundaron las redes con memes alusivos. Como en 2018, en Rusia, La Roja no estará
+                            en la
+                            competencia se que llevará adelante en noviembre. Perú, que dependía de si mismo, clasificó
+                            al
+                            Mundial. Para poder competir en Doha, Chile debía derrotar a Uruguay y esperar que Perú y
+                            Colombia perdieran en sus respectivos partidos, algo que finalmente no ocurrió. Chile cayó
+                            derrotado por la Celeste 2 a 0, con una chilena a pocos minutos de terminar el partido.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="imagenes/meme.JPG" class="responsive">
+                    </td>
+                </tr>
+            </table>
+        </article>
+        <p>----------------------------------------------------------------------------------------------------------------------
+        </p>
+        <article>
+            <table>
+                <tr>
+
+                    <th>
+
+                        <h3> Puertovarino representará a Chile en Mundial de Esgrima de Dubai con apoyo privado
+                            gestionado
+                            por el municipio</h3>
+                        <h6>cat: Deportes</h6>
+
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Vicente Pérez será el único chileno en competencia, junto a otros 144 esgrimistas de 60
+                            países en
+                            la cita planetaria que se desarrollará entre el 2 y el 10 de abril en Dubai, Emiratos Árabes
+                            Unidos. El deportista de 15 años de edad ocupa actualmente el tercer lugar del ranking
+                            nacional
+                            en su primer año de cadete en categoría sub 17 y séptimo en el ranking nacional juvenil sub
+                            19.
+                            Para acudir al Mundial de Dubai debió recurrir al apoyo del municipio que logró articular
+                            con la
+                            empresa Caleta Bay la donación de los pasajes para trasladarse hasta Emiratos Árabes Unidos.
+                            Para despedir a la joven promesa deportiva, el alcalde Tomás Gárate, junto al gerente
+                            general de
+                            Caleta Bay, Aníbal Pérez de Arce se reunieron con Vicente y sus padres, donde desearon éxito
+                            en
+                            su participación e hicieron entrega de la donación y el estandarte de la comuna.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="imagenes/VicenteEsgrima.JPG" class="responsive">
+                    </td>
+                </tr>
+
+                </tr>
+            </table>
+        </article>
+        <div id="articDinam"></div>
+        <div class="form">
+            <form name="formulario">
+                <div class="form-group">
+                    <label for="titleField">Título: </label>
+                    <input type="text" id="titleField" class="titleField">`
+                </div>
+                <div class="form-group">
+                    <label for="catField">Categoría: </label>
+                    <input type="text" id="catField" class="catField"><br>
+                </div>
+                <div class="form-group">
+                    <label for="descField">Descripción: </label>
+                    <textarea id="descField" class="descField"></textarea><br>
+                    <input type="button" onclick="entradaArticulo()" value="Ingrese su artículo" class="articleSubmit">
+                </div>
+
+
+            </form>
+        </div>
+
+
+
+        <script>
+            const articleTemplate = ' <p>----------------------------------------------------------------------------------------------------------------------</p><article><table><tr><th><h3>%%TITLE%%</h3><h6>cat: %%CAT%%</h6></th></tr><tr><td><p>%%TEXTOCUERPO%%.</p></td></tr></table></article>';
+            const titulo = document.querySelector('#titleId');
+            const descripcion = document.querySelector('#descId');
+            const titleField = document.querySelector('#titleField');
+            const catField = document.querySelector('#catField');
+            const articleSubmit = document.querySelector('#descField');
+            let articleCount = document.getElementsByTagName("article").length;
+            document.getElementById("constante").innerHTML = "Cantidad de artículos: " + articleCount;
+
+            function entradaArticulo() {
+                let userTitle = titleField.value;
+                let userDescription = articleSubmit.value;
+                let userCategory = catField.value;
+                var article = articleTemplate.replace("%%TITLE%%", userTitle);
+                article = article.replace("%%TEXTOCUERPO%%", userDescription.replaceAll("\n", "<br>"));
+                article = article.replace("%%CAT%%", userCategory.replace());
+                document.getElementById("articDinam").append(document.createRange().createContextualFragment(article));
+
+            }
+
+        </script>
+
+
+        </div>
+    </section>
+    <footer class="footer">
+
+        <div><strong>Contacto</strong></div>
+        <div id="formContacto" class="formContacto">
+            <form name="formContacto">
+                <div class="form-group">
+                    <input type="text" id="nombreContacto" placeholder="Nombre"><br>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="emailContacto" placeholder="Email"><br>
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" cols="20" id="textareaContacto" class="textareaContacto" form="formContacto"
+                        placeholder="Descripción..."></textarea><br>
+                    <input type="button" onclick="" value="Enviar" class="contactoForm"><br>
+                </div>
+
+            </form>
+        </div>
+        <div>
+            <p>Author: Eduardo Pinto<br>
+                <a href="mailto:epm@example.com">epm@example.com</a>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
