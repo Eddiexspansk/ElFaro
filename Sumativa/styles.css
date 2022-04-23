@@ -14,7 +14,9 @@ body {
     height:360px;
   }
 
+  .card-body { height: 150px; overflow-y: scroll; width: 100%; }
 
+  //.card-body p { width: 650px; word-break: break-word; }
 
 /*Las etiquetas article (son donde van las noticias) tendrán el elemento grid
 para organizarlos en bloques*/
@@ -132,17 +134,18 @@ li a:hover {
     text-align:inherit;
    
 }
-.formContacto {
+
+
+
+.form input[name="formContacto"] {
+
     display: inline-block;
     text-align: right;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border-width: 2px;
+    
+    border-width: 5px;
     border-style: solid;
     border-color: grey;
-    border-spacing: 10px;
+    border-spacing: 20px;
     text-align: center;
   }
   
