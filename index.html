@@ -25,8 +25,6 @@
     <title>El Faro (AIEP S5)</title>
 
 
-
-
 </head>
 
 <body>
@@ -49,8 +47,6 @@
                     </FONT>
                 </div>
 
-
-
                 <!--Barra de Navegación-->
                 <nav class="navbar navbar-expand-lg navbar-light bg-body">
                     <div class="container-fluid">
@@ -63,7 +59,6 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="categorias">
-
                             </ul>
                         </div>
                     </div>
@@ -85,8 +80,16 @@
           </div>
         </div>
       </div>
-
-      <div></div>
+<!--LAS NOTICIAS DESTACADAS APARECERAN CUANDO SE INGRESE UNA NUEVA NOTICIA EN EL FORMULARIO-->
+      <!--<div id="noticiasDestacadas" class="container-fluid"><h8>NOTICIAS DESTACADAS</h8>
+        <div  class="row justify-content-lg-between ">
+          <div class="col-4">
+            <div class="col flex-column " id="nuevas-noticias"></div>
+          </div>
+        </div>-->
+        <div class="col flex-column " id="nuevas-noticias">
+        </div>
+      </div>
     <!--Se crea la clase menú para dar forma a un menú mas estilizado con CSS-->
     <div class="container-fluid">
         <section align="center">
@@ -99,7 +102,7 @@
             <!--ACÁ SE AGREGAN LAS NOTICIAS DESDE LA FUNCIÓN redibujaNoticia()-->
             <div class="row flex-row " id="noticias">
             </div>
-
+<div></div>
 
             <div class="form">
                 <form name="formulario">
@@ -126,7 +129,7 @@
 
 
 
-            <!-- Footer -->
+                              <!-- Footer -->
             <footer
                     class="text-center text-lg-start text-dark"
                     style="background-color: #ECEFF1"
@@ -282,7 +285,7 @@
         //SE CREA LA FUNCION PARA QUE CON EL BOTON SE ACTIVE Y PROCEDA A MOSTRAR EL CONTENIDO
         var template = '<div class="col col-sm-4"><article class="card border-secondary  h-100 " style="width: 20em";">' +
             '<table>' +
-            '<tr><td><h3 class="card-header">%%TITLE%%</h3><h6 >cat: %%CAT%%</h6></td></tr>' +
+            '<tr style="background-color: #21D192"><td><h4 style="color:white" class="card-header">%%TITLE%%</h4><h6 style="color:white" >cat: %%CAT%%</h6></td></tr>' +
             '<tr><td><p class="card-body text-secondary">%%TEXTO%%</p></td></tr>' +
             '%%MEDIA%%' +
             '</table></article></div>';
@@ -341,13 +344,14 @@
                         .replaceAll("%%TEXTO%%", d.text)
                         .replaceAll("%%MEDIA%%", d.media);
                 }
-                //??
+                //AGREGA UNA NUEVA CATEGORÍA AL MENU DE NAVEGACIÓN CON PUSH
                 if (!cats.includes(d.categoria)) cats.push(d.categoria);
             });
 
             console.log("GEBI", document.getElementById("noticias"));
 
             document.getElementById("noticias").innerHTML = out;
+            
             out = "";
 
             cats.forEach(c => {
@@ -363,6 +367,8 @@
             filtro = f;
             redibujaNoticias();
         }
+
+        
 
 
 
@@ -404,9 +410,45 @@
             console.log("art");
             data.push(art);
             redibujaNoticias();
+            redibujaNuevas();
         }
 
+        
+       
+        
+
+
+        var nuevasTemplate = ['<div  class="col col-sm-4" id="nuevaNoticia"><article>' +
+            '<h4>%%TITLE%%</h4>' +
+            '<p >%%TEXTO%%</p></div>'];
+
+        function redibujaNuevas() {
+          var titulo = document.querySelector('#titleField').value;
+          var texto = document.querySelector('#descField').value;
+          var outNew="";
+
+          outNew += nuevasTemplate.replaceAll("%%TITLE%%", titulo)
+                        .replaceAll("%%TEXTO%%", texto);
+
+
+          data.forEach(d =>{ 
+                //??
+                if (filtro == "" || filtro == d.categoria) 
+                    outNew += nuevasTemplate.replaceAll("%%TITLE%%", d.title)
+                        .replaceAll("%%CAT%%", d.categoria)
+                        .replaceAll("%%TEXTO%%", d.text);
+
+          
+          
+
+            console.log(titulo);
+            document.getElementById("nuevas-noticias").innerHTML = outNew;
+
+        });
+      }
         redibujaNoticias();
+        redibujaNuevas();
+        
     </script>
 
 </body>

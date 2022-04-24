@@ -12,11 +12,34 @@ body {
 .carousel-inner > .item > img {
     width:640px;
     height:360px;
+    
   }
 
-  .card-body { height: 150px; overflow-y: scroll; width: 100%; }
+  #carouselExampleSlidesOnly{
 
-  .card-body p { width: 650px; word-break: break-word; }
+
+
+  }
+
+
+
+  .card-body { height: 150px; overflow-y: scroll; width: 100%; height: 150px; word-break: break-all; }
+  .card-header { word-break: break-all ; width: 100%; }
+  
+#noticiasDestacadas{
+
+  background-color: white;
+  color : black;
+  font-weight: bold;
+}
+
+#nuevaNoticia{
+
+text-align: start;
+word-break: break-all;
+background-color:white;
+color:black;
+}
 
 /*Las etiquetas article (son donde van las noticias) tendrán el elemento grid
 para organizarlos en bloques*/
