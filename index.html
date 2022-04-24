@@ -418,9 +418,11 @@
         
 
 
-        var nuevasTemplate = ['<div  class="col col-sm-4" id="nuevaNoticia"><article>' +
+        var nuevasTemplate = '<div  class="col col-sm-4" id="nuevaNoticia"><article>' +
             '<h4>%%TITLE%%</h4>' +
-            '<p >%%TEXTO%%</p></div>'];
+            '<p >%%TEXTO%%</p></div>';
+
+            var dataNuevas = [];
 
         function redibujaNuevas() {
           var titulo = document.querySelector('#titleField').value;
@@ -446,9 +448,16 @@
 
         });
       }
+
+      function addNueva(){
+        var dn = {
+          var titulo = document.querySelector('#titleField').value;
+        }
+      }
         redibujaNoticias();
         redibujaNuevas();
         
+      
     </script>
 
 </body>
