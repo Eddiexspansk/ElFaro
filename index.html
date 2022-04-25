@@ -81,7 +81,7 @@
       </div>
 
       <hr/>
-
+      <p>Ingresa tu Artículo</p>
       <div class="form">
         <form name="formulario">
           <div class="form-group">
@@ -110,9 +110,8 @@
       <div class="me-5">
         <span>Nos puedes encontrar en las redes sociales :</span>
       </div>
-      <!-- Left -->
-
-      <!-- Right -->
+     
+       <!-- Seccion: Social media -->
       <div>
         <a href="" class="text-white me-4">
           <i class="bi bi-facebook"></i>
@@ -133,11 +132,11 @@
           <i class="bi bi-github"></i>
         </a>
       </div>
-      <!-- Right -->
+     
     </section>
-    <!-- Section: Social media -->
+   
 
-    <!-- Section: Links  -->
+    <!-- Seccion: Links  -->
     <section class="">
       <div class="container text-center text-md-start mt-5">
         <!-- Grid row -->
@@ -145,7 +144,7 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
-            <h6 class="text-uppercase fw-bold">Noticias El Faro</h6>
+            <h6 class="text-uppercase fw-bold">Quienes somos</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci necessitatibus impedit quam sapiente
@@ -181,10 +180,10 @@
             <h6 class="text-uppercase fw-bold">Useful links</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
             <p>
-              <a href="#!" class="text-dark">Registrarse</a>
+              <a href="registro.html" class="text-dark">Registrarse</a>
             </p>
             <p>
-              <a href="#!" class="text-dark">Ingresar</a>
+              <a href="login.html" class="text-dark">Ingresar</a>
             </p>
             <p>
               <a href="#!" class="text-dark">Empleo</a>
@@ -208,7 +207,9 @@
               <div class="form-group">
                 <textarea rows="4" cols="20" id="textareaContacto" class="textareaContacto" form="formContacto"
                   placeholder="Descripción..."></textarea><br>
-                <input type="button" onclick="" value="Enviar" class="contactoForm"><br>
+                  <input type="checkbox" id="javascript" name="fav_language" value="JavaScript">
+                  <label for="javascript">NEWSLETTER</label>
+                <input type="button" onclick="" value="Enviar" class="contactoForm"><br>               
               </div>
             </form>
           </div>
@@ -376,7 +377,7 @@
 
     // Template para los articulos destacados
     var destacadosTemplate = '<div  class="col col-sm-4" id="nuevaNoticia"><article>' +
-      '<h4>%%TITLE%%</h4>' +
+      '<h6><strong>%%TITLE%%</strong></h6>' +
       '<p >%%TEXTO%%</p></div>';
 
     var dataDestacados = [];
