@@ -1,3 +1,6 @@
+<!--Controller DAO convierte el objeto que se crea en el 
+formularioen tablas para la base-->
+
 <?php
 include_once("../Model/articulo.php");
 include_once("../Model/categoria.php");
@@ -19,8 +22,7 @@ class DAO {
         }
     }
 
-
-
+//Se crea la función getArcticulos para obtener la categoría
     public function getArticulos($cat=""){
         $articulos=[];
         $sql="SELECT TITULO,TEXTO,CATEGORIA,MEDIA FROM ARTICULO";

@@ -21,11 +21,7 @@ class Register {
             $err["password"]="La clave no debe contener sólo números y letras, por favor ESFUERCESE UN POQUITO.";
             return $err;
         }
-        /*
-        if(!preg_match("//^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/", $email)){
-            $err["email"]="Email inválido, por favor verifíquelo";
-            return $err;
-        } */
+      
         echo "PASS";
         print_r($password);
         $signupRecord=new Usuario();

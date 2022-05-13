@@ -150,7 +150,7 @@ if (isset($_GET["msg"])) {
       </div>
 
       <hr>
-      <!--Se Crea el área para Miniaturas-->
+      <!--Se Crea el área para Miniaturas, se ingresarán en las semana 8 desde la BD-->
       <div class="container">
         <div>Miniaturas</div>
         <div class="d-flex flex-row">
@@ -174,7 +174,7 @@ if (isset($_GET["msg"])) {
           </div>
         </div>
 
-
+                <!--Este formulario podr{a subir arhivos desde lasSemana 8 -->
         <hr />
         <p>Ingresa tu Artículo</p>
         <div class="form">
