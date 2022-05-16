@@ -1,5 +1,5 @@
 <!--Controller DAO convierte el objeto que se crea en el 
-formularioen tablas para la base-->
+formulario en tablas para la base-->
 
 <?php
 include_once("../Model/articulo.php");
@@ -10,7 +10,7 @@ include_once("../Model/contacto.php");
 class DAO {
 
     private $conn=null;
-
+//Uso del Modelo PDO
     public function __construct() {
         $dsn = 'mysql:dbname=elfaro;host=127.0.0.1';
         $usuario = 'elfaro';
@@ -22,7 +22,7 @@ class DAO {
         }
     }
 
-//Se crea la función getArcticulos para obtener la categoría
+//Se crea la función getArcticulos para obtener los artículos
     public function getArticulos($cat=""){
         $articulos=[];
         $sql="SELECT TITULO,TEXTO,CATEGORIA,MEDIA FROM ARTICULO";
@@ -66,7 +66,7 @@ class DAO {
         }
         return $usuarios;
     }
-
+//o¡Funci´ón para obtener las categorías de los artículos
     public function getCategorias(){
         $cats=[];
         // Categoria de inicio
