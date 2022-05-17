@@ -192,7 +192,7 @@ if (isset($_GET["msg"])) {
               <textarea id="descField" class="descField" name="texto"></textarea><br>
               <input type="hidden" name="action" value="postNoticia" />
               <div class="form-group">
-                <div class="mb-3">
+                <div class="mb-2">
                   <input type="file" class="form-control-file" name="media">
                 </div>
                 <input type="submit" value="Ingrese su artículo" class="articleSubmit" name="guardar">

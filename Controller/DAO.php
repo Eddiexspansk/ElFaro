@@ -1,4 +1,4 @@
-<!--Controller DAO convierte el objeto que se crea en el 
+<!--Controller DAO convierte el objeto que se crea del 
 formulario en tablas para la base-->
 
 <?php
@@ -66,7 +66,7 @@ class DAO {
         }
         return $usuarios;
     }
-//o¡Funci´ón para obtener las categorías de los artículos
+//Funciión para obtener las categorías de los artículos
     public function getCategorias(){
         $cats=[];
         // Categoria de inicio
@@ -90,22 +90,24 @@ class DAO {
     }
 //función para guardar en la BD los artículos
     public function postNoticia(Articulo $art){
-        $sql="INSERT INTO ARTICULO (TITULO,TEXTO,CATEGORIA) VALUES (:TITULO,:TEXTO,:CATEGORIA)";
+        $sql="INSERT INTO ARTICULO (TITULO,TEXTO,CATEGORIA,MEDIA) VALUES (:TITULO,:TEXTO,:CATEGORIA,:MEDIA)";
          $sth=$this->conn->prepare($sql);
-        $updated=$sth->execute(array(":TITULO"=>$art->titulo, ":TEXTO"=>$art->texto, ":CATEGORIA"=>$art->categoria));
+        $updated=$sth->execute(array(":TITULO"=>$art->titulo, ":TEXTO"=>$art->texto, ":CATEGORIA"=>$art->categoria, ":MEDIA"=>$art->media));
         if(!$updated){
             die("No puedo agregar la noticia");
         }
     }
+
 //función para guardar los contactos
     public function guardaContacto(Contacto $contacto){
-        $sql="INSERT INTO CONTACTO (NOMBRE,EMAIL,COMENTARIO) VALUES (:NOMBRE,:EMAIL,:COMENTARIO)";
+        $sql="CALL guardarContacto_SP(:NOMBRE, :EMAIL, :COMENTARIO);";
         $sth=$this->conn->prepare($sql);
         $updated=$sth->execute(array(":NOMBRE"=>$contacto->nombre, ":EMAIL"=>$contacto->email, ":COMENTARIO"=>$contacto->comentario));
         if(!$updated){
             die("No puedo guardar el Contacto");
         }
     }
+
 //función para guardar el email del suscrito
     public function suscribeNewsletter($email){
         $sql="SELECT count(1) FROM SUBSCRIPCION WHERE EMAIL=:EMAIL";

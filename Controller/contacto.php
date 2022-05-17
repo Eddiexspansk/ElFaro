@@ -6,7 +6,7 @@ class ContactoController {
     public function __construct(){
 
     }
-
+//Se crea la función para recibir los contactos
     public function reciveContacto($nombre, $email, $comentario){
         $contacto=new Contacto();
         $contacto->nombre=$nombre;
@@ -14,6 +14,7 @@ class ContactoController {
         $contacto->comentario=$comentario;
         print_r($contacto);
         $dao=new DAO();
+        //pasamos el objeto contacto al DAO
         $dao->guardaContacto($contacto);
     }
 
@@ -21,8 +22,6 @@ class ContactoController {
         $dao=new DAO();
         $dao->suscribeNewsletter($email);
     }
-
-
 }
 
 
@@ -34,4 +33,4 @@ if(isset($_POST["action"]) && $_POST["action"]=="guardaContacto"){
     }
 }
 header("location: /ElFaro");
-?>
+?> 
