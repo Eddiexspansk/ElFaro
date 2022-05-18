@@ -16,6 +16,7 @@ if (isset($_GET["cat"])) {
 }
 $n = new Noticias();
 $noticias = $n->getNoticias($cat);
+$noticiasDest = $n->getNoticiaDest();
 $cantidad_articulos = $n->getCuenta();
 $categorias = $n->getCategorias();
 $msg = [];
@@ -85,15 +86,13 @@ if (isset($_GET["msg"])) {
                     <a class="nav-link active" aria-current="page" href="?cat=<?= htmlentities($categoria->id) ?>">
                       <?= $categoria->label ?>
                     </a>
-                  </li>
-                <?php
-                }
-                ?>
-              </ul>
+                  </li <?php
+                      }
+                        ?> 
+                  </ul>
             </div>
           </div>
         </nav>
-
   </header>
 
   <!--ÁREA DE PUBLICIDAD-->
@@ -137,7 +136,12 @@ if (isset($_GET["msg"])) {
                 </tr>
                 <tr>
                   <td>
-                    <p class="card-body text-secondary"><?= $noticia->texto ?></p>
+                    <p class="card-body text-secondary"><?= $noticia->texto ?> <?= $noticia->id ?></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src="../Controller/image.php?art=<?= $noticia->id ?>" alt="imagen" style="width: 80%;" />
                   </td>
                 </tr>
               </table>
@@ -146,37 +150,31 @@ if (isset($_GET["msg"])) {
         <?php
         }
         ?>
-
       </div>
-
       <hr>
       <!--Se Crea el área para Miniaturas, se ingresarán en las semana 8 desde la BD-->
-      <div class="container">
-        <div>Miniaturas</div>
-        <div class="d-flex flex-row">
-          <div class="p-4 border-end" id="miniaturas">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p> <img src="../imagenes/ciudadSantiago.JPG" alt="" height="40px" width="40px">
-          </div>
-          <div class="p-4 border-end" id="miniaturas">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p> <img src="../imagenes/ciudadSantiago.JPG" alt="" height="40px" width="40px">
-          </div>
-          <div class="p-4 border-end" id="miniaturas">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p> <img src="../imagenes/ciudadSantiago.JPG" alt="" height="40px" width="40px">
-          </div>
-          <div class="p-4 border-end" id="miniaturas">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p> <img src="../imagenes/ciudadSantiago.JPG" alt="" height="40px" width="40px">
-          </div>
-          <div class="p-4 border-end" id="miniaturas">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p> <img src="../imagenes/ciudadSantiago.JPG" alt="" height="40px" width="40px">
-          </div>
-          <div class="p-4 border-end" id="miniaturas">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p> <img src="../imagenes/ciudadSantiago.JPG" alt="" height="40px" width="40px">
-          </div>
+      <div>
+        <div class="container-fluid" id="destacadoTitulo">
+          Destacados
         </div>
-
-                <!--Este formulario podr{a subir arhivos desde lasSemana 8 -->
+        <div class="container-fluid" id="destacadoContainer">
+          <div class="row">
+            <?php
+            foreach ($noticiasDest as $noticiaDest) {
+            ?>
+              <div class="col-xs-6 col-md-3">
+                <p class="thumbnail"></p><?= $noticiaDest->titulo ?>
+              </div>    
+        <?php
+            }
+        ?>
+        </div>
+        </div>
+        <!--Este formulario podr{a subir arhivos desde lasSemana 8 -->
         <hr />
-        <p>Ingresa tu Artículo</p>
+        <div>
+          <p>Ingresa tu Artículo</p>
+        </div>
         <div class="form">
           <form name="formulario" action="../Controller/postNoticia.php" enctype="multipart/form-data" method="POST">
             <div class="form-group">
@@ -193,7 +191,7 @@ if (isset($_GET["msg"])) {
               <input type="hidden" name="action" value="postNoticia" />
               <div class="form-group">
                 <div class="mb-2">
-                  <input type="file" class="form-control-file" name="media">
+                  <input type="file" class="form-control-file" name="media" size="20">
                 </div>
                 <input type="submit" value="Ingrese su artículo" class="articleSubmit" name="guardar">
               </div>

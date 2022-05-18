@@ -1,7 +1,5 @@
-<!--Controller DAO convierte el objeto que se crea del 
-formulario en tablas para la base-->
-
 <?php
+//Controller DAO convierte el objeto que se crea del formulario en tablas para la base
 include_once("../Model/articulo.php");
 include_once("../Model/categoria.php");
 include_once("../Model/contacto.php");
@@ -25,7 +23,7 @@ class DAO {
 //Se crea la función getArcticulos para obtener los artículos
     public function getArticulos($cat=""){
         $articulos=[];
-        $sql="SELECT TITULO,TEXTO,CATEGORIA,MEDIA FROM ARTICULO";
+        $sql="SELECT ID,TITULO,TEXTO,CATEGORIA FROM ARTICULO";
         if(strlen(trim($cat))>0){
             $sql.=" WHERE CATEGORIA = '".$cat."'";
         }
@@ -35,14 +33,50 @@ class DAO {
         } else {
             while ($row = $result->fetch()) {
                 $articulo=new Articulo();
+                $articulo->id=$row["ID"];
                 $articulo->titulo=$row["TITULO"];
                 $articulo->texto=$row["TEXTO"];
                 $articulo->categoria=$row["CATEGORIA"];
-                $articulo->media=$row["MEDIA"];
                 array_push($articulos,$articulo);
             }
         }
         return $articulos;
+    }
+
+
+    public function getArticulosDest(){
+        $articulosDes=[];
+        $sql="SELECT titulo FROM articulo ORDER BY id ASC LIMIT 4";
+        $result=$this->conn->query($sql);
+        if(!$result){
+            die("No puedo recuperar los articulos");
+        } else {
+            while ($row = $result->fetch()) {
+                $articuloDes=new Articulo();
+                $articuloDes->titulo=$row["titulo"];
+                array_push($articulosDes,$articuloDes);
+            }
+        }
+        return $articulosDes;
+    }
+
+    public function getArticulo($artid){
+        $sql="SELECT TITULO,TEXTO,CATEGORIA,MEDIA,MEDIA_TYPE FROM ARTICULO WHERE ID=:artid";
+        $sth=$this->conn->prepare($sql);
+        $sth->bindParam(":artid",$artid);
+        $result=$sth->execute();
+        if(!$result){
+            die("Articulo ID ".$artid." not found");
+        } else {
+            $row=$sth->fetch();
+            $articulo=new Articulo();
+            $articulo->titulo=$row["TITULO"];
+            $articulo->texto=$row["TEXTO"];
+            $articulo->categoria=$row["CATEGORIA"];
+            $articulo->media=$row["MEDIA"];
+            $articulo->mediatype=$row["MEDIA_TYPE"];
+            return $articulo;
+        }
     }
 //obtiene los usuarios desde la BD para agregarlos a la tabla del formulario
     public function getUsuarios($tu=""){
@@ -74,7 +108,7 @@ class DAO {
         $cat->label="Inicio";
         $cat->value="";
         array_push($cats,$cat);
-        $sql="SELECT DISTINCT CATEGORIA FROM ARTICULO ORDER BY CATEGORIA DESC";
+        $sql="CALL obtenerCat_SP()";
         $result=$this->conn->query($sql);
         if(!$result){
             die("No puedo recuperar ninguna categoria");
@@ -90,9 +124,10 @@ class DAO {
     }
 //función para guardar en la BD los artículos
     public function postNoticia(Articulo $art){
-        $sql="INSERT INTO ARTICULO (TITULO,TEXTO,CATEGORIA,MEDIA) VALUES (:TITULO,:TEXTO,:CATEGORIA,:MEDIA)";
+        $sql="INSERT INTO ARTICULO (TITULO,TEXTO,CATEGORIA,MEDIA,MEDIA_TYPE) VALUES (:TITULO,:TEXTO,:CATEGORIA,:MEDIA,:MEDIA_TYPE)";
          $sth=$this->conn->prepare($sql);
-        $updated=$sth->execute(array(":TITULO"=>$art->titulo, ":TEXTO"=>$art->texto, ":CATEGORIA"=>$art->categoria, ":MEDIA"=>$art->media));
+        $updated=$sth->execute(array(":TITULO"=>$art->titulo, ":TEXTO"=>$art->texto,
+            ":CATEGORIA"=>$art->categoria, ":MEDIA"=>$art->media, ":MEDIA_TYPE"=>$art->mediatype));
         if(!$updated){
             die("No puedo agregar la noticia");
         }

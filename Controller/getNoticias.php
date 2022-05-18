@@ -25,6 +25,18 @@ class Noticias{
         return $out;
     }
 
+    public function getNoticia($artid){
+        $dao=new DAO();
+        $art=$dao->getArticulo($artid);
+        return $art;
+    }
+
+    public function getNoticiaDest(){
+        $dao=new DAO();
+        return $dao->getArticulosDest();
+    }
+
+
     public function getCuenta(){
         return $this->cuenta;
     }
